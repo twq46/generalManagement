@@ -2,7 +2,7 @@
   <el-header>
     <div class="l-content">
       <!--图标的展示 -->
-      <el-icon color="white" :size="20"><Menu /></el-icon>
+        <el-icon color="white"  :size="20" @click="zdStore.qf"><Menu /></el-icon>
     </div>
     <div class="r-content">
       <!--    登录退出的展示-->
@@ -22,6 +22,9 @@
 </template>
 
 <script setup>
+import {useStore} from '@/store/index'
+
+const zdStore = useStore()
 
 </script>
 

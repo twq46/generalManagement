@@ -6,6 +6,9 @@
  <router-view></router-view>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @import "assets/styles/common.scss";
+#app{
+  height: 100%;
+}
 </style>
