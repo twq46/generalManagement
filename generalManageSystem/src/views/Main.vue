@@ -25,9 +25,10 @@ import Aside from "../components/Aside.vue";
   flex-wrap: wrap;
 }
 .el-container{
+  display: flex;
   flex-wrap: wrap;
   //基准线
-  align-items: baseline;
+  align-items: flex-start;
 }
 .common-layout{
   height: 100%;

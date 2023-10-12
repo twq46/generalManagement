@@ -5,7 +5,13 @@
           background-color="#545c64"
           text-color="#fff"
           :collapse="zdStore.isCollapse" :collapse-transition="false">
-        <el-menu-item :index="item.path" v-for="item in noChildren()" :key="item.path">
+
+        <h3 v-show="!zdStore.isCollapse">后台管理系统</h3>
+        <h3 v-show="zdStore.isCollapse">后台</h3>
+        <el-menu-item
+            :index="item.path"
+            v-for="item in noChildren()"
+            :key="item.path" @click="clickMenu(item)">
 <!--          <el-icon><icon-menu /></el-icon>-->
           <!--动态引入icon-->
           <el-icon>
@@ -21,7 +27,10 @@
             <span>{{item.label}}</span>
           </template>
           <el-menu-item-group >
-            <el-menu-item :index="subItem.path" v-for="(subItem,subIndex) in item.children" :key="subIndex">
+            <el-menu-item
+                :index="subItem.path"
+                v-for="(subItem,subIndex) in item.children"
+                :key="subIndex" @click="clickMenu(subItem)">
               <el-icon>
                 <component class="icons" :is="subItem.icon"/>
               </el-icon>
@@ -42,6 +51,7 @@
 
 <script setup>
 import {useStore} from "@/store/index";
+import {useRouter} from 'vue-router'
 const zdStore = useStore()
 const list =[
   {
@@ -80,6 +90,13 @@ const noChildren = () => {
 const hasChildren = () => {
   return list.filter((item) => item.children)
 }
+
+const router = useRouter()
+const clickMenu = (item) => {
+  router.push({
+    name:item.name,
+  })
+}
 </script>
 
 <style scoped lang="scss">
@@ -88,4 +105,13 @@ const hasChildren = () => {
   height: 18px;
 }
 
+.el-menu{
+  h3{
+    border-right: none;
+    color: white;
+    line-height: 35px;
+    text-align: center;
+  }
+
+}
 </style>
