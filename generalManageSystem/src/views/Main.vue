@@ -1,6 +1,6 @@
 <template>
   <div class="common-layout">
-    <el-container>
+    <el-container class="lay-common">
       <Aside></Aside>
       <el-container class="r-container">
         <Header></Header>
@@ -32,6 +32,9 @@ import Aside from "../components/Aside.vue";
 }
 .common-layout{
   height: 100%;
+  .lay-common{
+    flex-wrap: nowrap;
+  }
   & > .el-container{
     height: 100%;
 
