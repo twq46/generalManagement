@@ -5,7 +5,6 @@
           background-color="#545c64"
           text-color="#fff"
           :collapse="zdStore.isCollapse" :collapse-transition="false">
-
         <h3 v-show="!zdStore.isCollapse">后台管理系统</h3>
         <h3 v-show="zdStore.isCollapse">后台</h3>
         <el-menu-item
@@ -50,9 +49,9 @@
 </template>
 
 <script setup>
-import {useStore} from "@/store/index";
+import {useStoreData} from "@/store/index";
 import {useRouter} from 'vue-router'
-const zdStore = useStore()
+const zdStore = useStoreData()
 const list =[
   {
     path:'/user',
@@ -93,9 +92,12 @@ const hasChildren = () => {
 
 const router = useRouter()
 const clickMenu = (item) => {
+  console.log(item)
   router.push({
     name:item.name,
   })
+  //pinia管理
+  zdStore.selectMenu(item)
 }
 </script>
 

@@ -2,8 +2,12 @@
   <el-header>
     <div class="l-content">
       <!--图标的展示 -->
-        <el-icon color="white" :size="20" @click="zdStore.qf"><Menu /></el-icon>
-        <h3>首页</h3>
+      <el-icon color="white" :size="20" @click="zdStore.qf"><Menu /></el-icon>
+      <el-breadcrumb separator="/" class="bread">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item v-if="zdStore.currentMenu" :to="zdStore.currentMenu.path">{{ zdStore.currentMenu.name }}</el-breadcrumb-item>
+
+      </el-breadcrumb>
     </div>
     <div class="r-content">
       <!--    登录退出的展示-->
@@ -23,13 +27,24 @@
 </template>
 
 <script setup>
-import {useStore} from '@/store/index'
+import {useStoreData} from '@/store/index'
 
-const zdStore = useStore()
+const zdStore = useStoreData()
 
 </script>
 
 <style scoped lang="scss">
+.l-content{
+  display: flex;
+  align-items: center;
+}
+.bread{
+  margin-left: 10px;
+}
+.bread :deep span{
+  color:white !important;
+  cursor: pointer !important;
+}
 header{
   width: 100%;
   display: flex;

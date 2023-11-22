@@ -1,13 +1,6 @@
 <template>
   <!-- gutter：列之间的间距  -->
-  <el-breadcrumb separator="/">
-    <el-breadcrumb-item :to="{ path: '/' }">homepage</el-breadcrumb-item>
-    <el-breadcrumb-item
-    ><a href="/">promotion management</a></el-breadcrumb-item
-    >
-    <el-breadcrumb-item>promotion list</el-breadcrumb-item>
-    <el-breadcrumb-item>promotion detail</el-breadcrumb-item>
-  </el-breadcrumb>
+
   <el-row class="home" :gutter="20">
     <el-col :span="8" style="margin-top:20px">
       <el-card shadow="hover">
