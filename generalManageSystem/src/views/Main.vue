@@ -4,6 +4,7 @@
       <Aside></Aside>
       <el-container class="r-container">
         <Header></Header>
+        <Tab></Tab>
         <el-main>
           <router-view></router-view>
         </el-main>
@@ -17,6 +18,8 @@
 <script setup>
 import Header from "../components/Header.vue";
 import Aside from "../components/Aside.vue";
+import Tab from "@/components/Tab.vue";
+
 </script>
 
 <style scoped lang="scss">
