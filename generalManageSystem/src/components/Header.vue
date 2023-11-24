@@ -41,10 +41,17 @@ const zdStore = useStoreData()
 .bread{
   margin-left: 10px;
 }
-.bread :deep span{
+
+//样式穿透 .bread /deep/ span
+
+:deep(.bread span){
   color:white !important;
   cursor: pointer !important;
 }
+//.bread :deep span{
+//  color:white !important;
+//  cursor: pointer !important;
+//}
 header{
   width: 100%;
   display: flex;
